@@ -3,7 +3,7 @@
 <Document>
 <webscripts>
 
-    <!-- General Parameters for Private Loan-->
+    <!-- General Parameters for Private Loan .-->
     <general_loanprivate>
         <min_amount></min_amount>
         <max_amount></max_amount>

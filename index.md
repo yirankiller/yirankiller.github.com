@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Welcome to YiranKiller , hi guys !
+title: Focus on Web develop, yirankiller.         Hi
 ---
 {% include JB/setup %}
 
-Fllow my weibo at: [yirankiller](http://weibo.com/yirankiller)
+Follow me at: [yirankiller](http://weibo.com/yirankiller)
 
-Contact me by : [yirankiller@gmail.com]
+Contact me by: [yirankiller@gmail.com](yirankiller@gmail.com)
 
 ## Update Author Attributes
 

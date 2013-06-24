@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Welcome to YiranKiller , hi guys !
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+Fllow my weibo at: [yirankiller](http://weibo.com/yirankiller)
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+Contact me by : [yirankiller@gmail.com]
 
 ## Update Author Attributes
 

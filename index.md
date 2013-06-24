@@ -2,7 +2,6 @@
 layout: page
 title: Focus on Web develop, yirankiller.         Hi
 ---
-{% include JB/setup %}
 
 Follow me at: [yirankiller](http://weibo.com/yirankiller)
 

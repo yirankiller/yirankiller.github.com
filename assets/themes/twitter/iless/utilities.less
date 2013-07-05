@@ -1,0 +1,14 @@
+.marginTopWhenFixToTop(@navbarHeight){
+	margin-top: @navbarHeight + 15px;
+}
+.navbarTopWhenFixToTop(@navbarHeight){
+	top : -@navbarHeight - 15px
+}
+
+// Centered container element
+.container{
+    .marginTopWhenFixToTop(@navbarHeight);
+}
+.navbar-fixed-top{
+	.navbarTopWhenFixToTop(@navbarHeight);
+}

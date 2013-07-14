@@ -3,6 +3,10 @@
     font-family: 'Gloria Hallelujah', Arial, Helvetica, sans-serif;
 }
 
+.container .post-content{
+  width: 700px;
+}
+
 /* posts index */
 .post > h3.title {
   position: relative;

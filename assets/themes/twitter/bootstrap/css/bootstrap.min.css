@@ -5267,3 +5267,6 @@ a.badge:focus {
 .navbar-fixed-top {
   top: -65px;
 }
+pre {
+  background-color: rgba(116, 184, 16, 0.42);
+}

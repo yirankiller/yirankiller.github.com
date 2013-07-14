@@ -1,20 +1,18 @@
 ---
 layout: default
-title: Focus on Web develop, yirankiller.      Hi 
+title: Focus on Web Develop  |  Justfor.you
+description: Focus on Web Develop  |  Justfor.you
 ---
-{% include JB/setup %}
-Follow me at: [yirankiller](http://weibo.com/yirankiller)
 
-Contact me by: [yirankiller@gmail.com](yirankiller@gmail.com)
 
 <div class="nav-list-container">
   <div class="nav-list-label"><span></span></div>
   <ul class="posts nav-list">
-      <li class="home">Ikiller's Bolg ,Focus on web develop.</li>
+      <li class="home">yiranKiller's Bolg ,Focus on web develop.</li>
     {% for post in site.posts %}
       <li>
         <a href="{{ BASE_PATH }}{{ post.url }}">
-          <span>{{ post.date | date_to_string }} write:  {{ post.title }} </span>
+          <span>{{ post.date | date_to_string }} wrote:  {{ post.title }} </span>
         </a>
       </li>
     {% endfor %}

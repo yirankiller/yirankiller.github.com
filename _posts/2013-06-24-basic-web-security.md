@@ -3,7 +3,7 @@ layout: post
 title: Web 安全问题总结
 description: HttpOnly & Security of Cookie & Cross-site Request Forgery
 keywords: httponly
-category : security
+category : web-security
 tagline: "Focus on web develop"
 tags : [java,websecurity,javascript]
 ---

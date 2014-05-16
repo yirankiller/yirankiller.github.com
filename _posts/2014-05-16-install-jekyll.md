@@ -3,7 +3,7 @@ layout: post
 description: 本地安装Jekyll
 title: Jekyll本地环境
 keywords: 本地安装Jekyll
-category : 本地Jekyll
+category : jekyll
 tagline: "Focus on web develop"
 tags : [Jekyll]
 ---

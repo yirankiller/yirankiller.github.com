@@ -3,7 +3,7 @@ layout: post
 description: Mysql中文乱码 默认编码设置
 title: Linux安装Mysql 中文乱码
 keywords: Mysql Linux中文乱码 默认编码设置 utf8
-category : gibberish
+category : mysql
 tagline: "Focus on web develop"
 tags : [Mysql,CharacterSet]
 ---

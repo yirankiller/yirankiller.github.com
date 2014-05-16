@@ -1,14 +1,15 @@
 ---
 layout: post
+description: HttpOnly & Security of Cookie & Cross-site Request Forgery
+title:Web 安全问题 Focus on web develop - yiranKiller
 keywords: httponly,java,cookie,secure
-description: HttpOnly & Secure of Cookie
 category : security
 tagline: "Focus on web develop"
 tags : [java,websecurity,javascript]
 ---
 {% include JB/setup %}
 
-##HttpOnly & Secure of Cookie
+##Web Security Issue
 
 前段时间，web项目提出了一些安全问题，第一个就是cookie的HttpOnly.
 先来了解以下cookie的格式：
@@ -60,7 +61,7 @@ JBoss 5.0.1 and JBOSS EAP 5.0.1 In `\server\<myJBossServerInstance>\deploy\jboss
 
 本文摘自[OWASP HttpOnly](https://www.owasp.org/index.php/HTTPOnly)
 
-###Secure
+###Secure Cookie
 
 A secure cookie has the secure attribute enabled and is only used via HTTPS, ensuring that the cookie is always encrypted when transmitting from client to server. This makes the cookie less likely to be exposed to cookie theft via eavesdropping. [Wiki](http://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie)
 
@@ -96,9 +97,10 @@ secure表示创建的cookie只能在HTTPS协议下被浏览器传递到服务器
 
 ***
 
-##Form token validate
+##Cross-site Request Forgery
 
-现在的技术越来越时髦了，以至于form提交都有可能被模拟，这里有一个方法可以防止这种情况。
+Cross-site request forgery：跨站请求伪造，也被称成为“one click attack”或者session riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。听起来像跨站脚本（XSS），但它与XSS不同。XSS利用站点内的信任用户，而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站。与XSS攻击相比，CSRF攻击往往不大流行（因此对其进行防范的资源也相当稀少）和难以防范，所以被认为比XSS更具危险性。
+
 在每一个页面的form中，都加入一个hidden，我们用下面代码的formtoken作为这个hidden的值
 {% highlight java %}
 	String secret = "1a2b3c4d5e6f7g1a2b3c4d5e6f7g1a2b3c4d5e6f7g1a2b3c4d5e6f7g1a2b3c4d5e6f7g";
@@ -107,7 +109,7 @@ secure表示创建的cookie只能在HTTPS协议下被浏览器传递到服务器
 	byte[] plaintext = (sessionId + secret).getBytes("UTF-8");
 	String formtoken = new sun.misc.BASE64Encoder().encode(java.security.MessageDigest.getInstance("SHA1").digest(plaintext));
 {% endhighlight %}   
-在我们每次接收form之前，都要先验证formtoken的值，用同样的secret和算法。这样就可以确保系统的安全。
+在我们每次接收request之前，都要先验证formtoken的值，用同样的secret和算法。这样可以确保请求不是恶意伪造的
 
 
 ##Prevent site from framing the page

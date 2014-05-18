@@ -20,12 +20,12 @@ a:active {color: #000000}   /* 被选择的链接 */
     line-height: 20px;
     padding: 10px 20px;
     border-top: 2px solid #f8f8f8;
+    font-family: 'Gloria Hallelujah', Arial, Helvetica, sans-serif;
 }
 .nav-list-container .nav-list li a:hover {
     color: #88bb00;
     font-weight: bold;
     text-decoration: none;
-    font-family: 'Gloria Hallelujah', Arial, Helvetica, sans-serif;
 }
 .nav-list-container .nav-list-label{
     width: 100%;

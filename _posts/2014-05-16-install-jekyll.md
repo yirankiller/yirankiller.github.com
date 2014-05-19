@@ -1,8 +1,8 @@
 ---
 layout: post
-description: 本地安装Jekyll
+description: 本地安装Jekyll Jekyll环境初始化
 title: Jekyll本地环境
-keywords: 本地安装Jekyll
+keywords: 本地安装Jekyll,Jekyll环境初始化
 category : jekyll
 tagline: "Focus on web develop"
 tags : [Jekyll]

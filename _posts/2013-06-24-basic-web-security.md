@@ -1,11 +1,11 @@
 ---
 layout: post
 title: Web 安全问题总结
-description: HttpOnly & Security of Cookie & Cross-site Request Forgery
-keywords: httponly
-category : web-security
+description: HttpOnly Secure Cookie Cross-site Request Forgery Session Fixation Prevent site from framing the page
+keywords: HttpOnly,Secure Cookie,Cross-site Request Forgery,Session Fixation,Prevent site from framing the page
+category : web
 tagline: "Focus on web develop"
-tags : [java,websecurity,javascript]
+tags : [java,web,security,javascript]
 ---
 {% include JB/setup %}
 

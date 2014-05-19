@@ -1,11 +1,11 @@
 ---
 layout: post
-description: Mysql中文乱码 默认编码设置
+description: Mysql Linux中文乱码 默认编码设置 utf8
 title: Linux安装Mysql 中文乱码
-keywords: Mysql Linux中文乱码 默认编码设置 utf8
+keywords: Mysql,Linux中文乱码,默认编码设置,utf8
 category : mysql
 tagline: "Focus on web develop"
-tags : [Mysql,CharacterSet]
+tags : [Mysql,乱码]
 ---
 {% include JB/setup %}
 

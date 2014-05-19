@@ -9,8 +9,9 @@ tags : [java,websecurity,javascript]
 ---
 {% include JB/setup %}
 
-##Web Security Issue
+##Security Parameter
 
+###HttpOnly
 前段时间，web项目提出了一些安全问题，第一个就是cookie的HttpOnly.
 先来了解以下cookie的格式：
 
@@ -18,7 +19,6 @@ tags : [java,websecurity,javascript]
 	[; expires=<date>][; domain=<domain_name>]
 	[; path=<some_path>][; secure][; HttpOnly]
 
-###HttpOnly
 主要就是为了来防止XSS攻击，如果浏览器支持这个属性的话，在客户端你将不能通过像javascript这样的脚本得到这个cookie <br />
 下面是我找到的解决httponly的办法，很详细。
 Using Java to Set HttpOnly
@@ -93,7 +93,18 @@ secure表示创建的cookie只能在HTTPS协议下被浏览器传递到服务器
 	<?xml version="1.0" encoding="UTF-8"?>
 	<Context cookies="true" crossContext="true">
     	<SessionCookie secure="true"/>
-{% endhighlight %}    	
+{% endhighlight %}
+
+###Prevent site from framing the page
+防止页面被嵌入iframe放到其他页面，我们可以在HttpResponse的Header中加入：
+{% highlight java %}
+	/*
+	X-Frame-Options:
+ 		DENY         prevent any site from framing the page.
+		SAMEORIGIN   allows only sites from the same domain to frame the page.
+	*/
+	response.setHeader("X-Frame-Options","SAMEORIGIN");
+{% endhighlight %}
 
 ***
 
@@ -111,16 +122,20 @@ Cross-site request forgery：跨站请求伪造，也被称成为“one click at
 {% endhighlight %}   
 在我们每次接收request之前，都要先验证formtoken的值，用同样的secret和算法。这样可以确保请求不是恶意伪造的
 
+##Session Fixation
 
-##Prevent site from framing the page
-防止页面被嵌入iframe放到其他页面，我们可以在HttpResponse的Header中加入：
-{% highlight java %}
-	/*
-	X-Frame-Options:
- 		DENY         prevent any site from framing the page.
-		SAMEORIGIN   allows only sites from the same domain to frame the page.
-	*/
-	response.setHeader("X-Frame-Options","SAMEORIGIN");
-{% endhighlight %} 
+首先我来模拟一个场景让大家更了解这个问题
+假如有一天你收到一封这样的邮件
+Hi Ethan!
+you had new message on you XXX account,please login and check that.
+[Login here.](http://www.justkiller.info/loginAccount;JSESSIONID=0285E5822849FE1417600E7B62B16511)
+
+神经大条的人可能就会直接登录,没有任何异常.
+但实际上在这封邮件的链接上自带了JSESSIONID,当你用Attacker给你的JSESSIONID登录了系统，而系统又没有在登录成功之后重新生成新的Session Id.
+这时候Attacker在不需要任何用户名和密码的情况下就已经可以查看你的任何信息了.如果有不明白，可以先了解一下JSESSIONID.
+所以强烈建议任何系统在登录成功后一定要重新生成新的Session Id.在Java中就是调用 `session.invalidate();` 方法.
+最后用Jboss 的同学请注意,Jboss在某些版本中 `session.invalidate()` 方法是不会重新生成Session Id 的.
+[session.getSession(true) does not create new sessionID after invalidation](https://issues.jboss.org/browse/JBAS-4436)
+对于Jboss这种情况,需要修改server.xml中emptySessionPath=false,默认应该是true.
 
 
